@@ -1,0 +1,17 @@
+# Ambiente de estudos. Instale com: pip install -r requirements.txt
+# Versões fixadas para reprodutibilidade. Atualize de forma consciente.
+# A lista cresce conforme as certificações (ex.: scikit-learn na MLA-C01).
+
+# AWS SDK
+boto3==1.44.0
+
+# Dados
+pandas==3.1.1
+numpy==2.5.4
+matplotlib==3.11.2
+
+# Notebooks
+jupyterlab==4.6.6
+
+# Utilitários
+python-dotenv==1.2.4

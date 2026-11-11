@@ -1,0 +1,59 @@
+# =============================================================
+# Material dos cursos: protegido por direitos autorais
+# (os slides têm a marca "NOT FOR DISTRIBUTION"). Fica só local.
+# =============================================================
+**/course-materials/
+
+# =============================================================
+# Segredos e credenciais: NUNCA vão para o GitHub
+# =============================================================
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.ppk
+*.p12
+*.pfx
+id_rsa*
+id_ed25519*
+credentials
+credentials.*
+.aws/
+
+# Infra como código (estado pode conter segredos)
+*.tfstate
+*.tfstate.*
+.terraform/
+*.tfvars
+cdk.out/
+.aws-sam/
+packaged*.yaml
+
+# =============================================================
+# Python / Jupyter
+# =============================================================
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# =============================================================
+# Dados: datasets ficam fora do git (versione só amostras pequenas)
+# =============================================================
+**/data/raw/
+**/data/processed/
+*.parquet
+*.csv.gz
+
+# =============================================================
+# Sistema operacional / editor
+# =============================================================
+.DS_Store
+Thumbs.db
+desktop.ini
+.claude/settings.local.json

@@ -1,0 +1,58 @@
+#!/bin/sh
+# -----------------------------------------------------------------------------
+# pre-commit: barreira contra vazamento de segredos e de material do curso.
+# Ativação (uma vez por clone):  git config core.hooksPath .githooks
+#
+# Bloqueia o commit se as linhas adicionadas contiverem:
+#   - chaves de acesso AWS (AKIA... / ASIA...)
+#   - aws_secret_access_key / aws_session_token
+#   - chaves privadas (-----BEGIN ... PRIVATE KEY-----)
+# Bloqueia também arquivos > 5 MB e qualquer coisa dentro de course-materials/.
+# -----------------------------------------------------------------------------
+
+fail=0
+
+added_lines=$(git diff --cached -U0 --no-color | grep '^+' | grep -v '^+++')
+
+if printf '%s\n' "$added_lines" | grep -Eq '(AKIA|ASIA)[0-9A-Z]{16}'; then
+  echo "BLOQUEADO: parece haver uma chave de acesso AWS no commit."
+  fail=1
+fi
+
+if printf '%s\n' "$added_lines" | grep -Eiq 'aws_(secret_access_key|session_token)[[:space:]]*[=:]'; then
+  echo "BLOQUEADO: parece haver aws_secret_access_key / aws_session_token no commit."
+  fail=1
+fi
+
+if printf '%s\n' "$added_lines" | grep -Eq -- '-----BEGIN ([A-Z]+ )?PRIVATE KEY-----'; then
+  echo "BLOQUEADO: parece haver uma chave privada no commit."
+  fail=1
+fi
+
+max_bytes=5242880
+staged_files=$(git -c core.quotePath=false diff --cached --name-only --diff-filter=AM)
+while IFS= read -r f; do
+  [ -z "$f" ] && continue
+  case "$f" in
+    */course-materials/*|course-materials/*)
+      echo "BLOQUEADO: $f é material do curso (direitos autorais). Não versione."
+      fail=1
+      ;;
+  esac
+  size=$(git cat-file -s ":$f" 2>/dev/null || echo 0)
+  if [ "$size" -gt "$max_bytes" ]; then
+    echo "BLOQUEADO: $f tem $size bytes (> 5 MB). Arquivos grandes não vão para o git."
+    fail=1
+  fi
+done <<EOF
+$staged_files
+EOF
+
+if [ "$fail" -ne 0 ]; then
+  echo ""
+  echo "Remova o conteúdo sensível (git restore --staged <arquivo>) e tente de novo."
+  echo "Falso positivo? Revise com cuidado e só então use: git commit --no-verify"
+  exit 1
+fi
+
+exit 0

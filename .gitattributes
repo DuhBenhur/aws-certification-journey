@@ -1,0 +1,18 @@
+# Normaliza finais de linha (evita diffs fantasmas entre Windows e Linux)
+* text=auto eol=lf
+
+# Scripts de shell e hooks PRECISAM de LF para rodar
+*.sh text eol=lf
+.githooks/* text eol=lf
+
+# Scripts do Windows
+*.ps1 text eol=crlf
+*.bat text eol=crlf
+
+# Binários
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.pdf binary
+*.zip binary
