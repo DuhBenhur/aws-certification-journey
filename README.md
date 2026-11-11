@@ -57,7 +57,7 @@ Legenda: 🔜 planejada · 📚 estudando · 📝 simulados · 📅 prova agenda
 ├── python/                      # trilha de Python para dados (ponte SQL → pandas → boto3)
 ├── templates/                   # modelos de nota, lab e simulado
 ├── scripts/                     # utilitários (ex.: check_env.py)
-└── docs/                        # setup do ambiente e método de estudo
+└── docs/                        # setup, método de estudo e guia de Git
 ```
 
 ## Como estudo

@@ -19,9 +19,13 @@ Repositório de estudos para certificações AWS (trilha de Cientista de Dados /
 - `docs/`: setup do ambiente e método de estudo
 - `scripts/check_env.py`: valida o ambiente
 
+## Contexto atual
+
+Se existir `HANDOFF.local.md` na raiz (local, fora do git), **leia antes de começar**: ele traz o estado atual, as decisões tomadas e as pendências.
+
 ## Regras
 
-- Commits no formato `tipo(escopo): descrição` (ver `docs/study-method.md`). Escopos: clf, aif, aib, mla, saa, aip, scs.
+- Commits no formato `tipo(escopo): descrição` (ver `docs/git-guide.md`). Escopos: clf, aif, aib, mla, saa, aip, scs.
 - Nunca commitar credenciais, account IDs, ARNs completos ou dados do trabalho. O hook `.githooks/pre-commit` ajuda, mas não substitui atenção.
 - Labs rodam só no perfil AWS `estudos` (conta pessoal), nunca no `default`.
 - Ao concluir uma seção: marcar o checkbox no README da certificação e atualizar o status da nota.

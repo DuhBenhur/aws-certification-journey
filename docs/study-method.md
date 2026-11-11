@@ -29,22 +29,10 @@ assistir → anotar → praticar → revisar → commitar
 2. Usar o **voucher de 50%** que a AWS libera após cada aprovação para agendar a próxima prova.
 3. Escrever um mini-retrospectivo no README da certificação: o que funcionou, o que eu mudaria.
 
-## Convenção de commits
+## Commits
 
-Formato: `tipo(escopo): descrição curta`
-
-| Tipo | Uso | Exemplo |
-|---|---|---|
-| `notes` | anotações de seção | `notes(clf): seção IAM` |
-| `lab` | hands-on | `lab(clf): site estático no S3` |
-| `exam` | simulados e provas | `exam(clf): simulado 1, 72%` |
-| `python` | estudo de Python | `python: groupby e merge vs SQL` |
-| `docs` | README, guias | `docs: atualiza trilha` |
-| `chore` | estrutura, configs | `chore: adiciona requirements` |
-
-Escopos: `clf`, `aif`, `aib`, `mla`, `saa`, `aip`, `scs`.
-
-Commits pequenos e frequentes (um por seção ou lab) deixam o histórico do GitHub mostrando constância, e isso conta muito como portfólio.
+Formato `tipo(escopo): descrição curta`, por exemplo `notes(clf): seção 02 IAM`. Faça um commit por seção, lab ou simulado.
+Tipos, regras, branches, tags por certificação e a cola de comandos estão no [guia de Git](git-guide.md).
 
 ## Python em paralelo
 
