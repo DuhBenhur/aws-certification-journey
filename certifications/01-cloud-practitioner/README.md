@@ -30,8 +30,8 @@
 **Curso:** [NEW] Ultimate AWS Certified Cloud Practitioner CLF-C02 (Stephane Maarek, Udemy)
 **Material local:** `course-materials/` (slides v45 + código, fora do git)
 
-- [ ] [00 — Introduction](notes/00-introduction.md) · slides p.1–11
-- [ ] [01 — What is Cloud Computing](notes/01-what-is-cloud-computing.md) · slides p.12–40
+- [x] [00 — Introduction](notes/00-introduction.md) · slides p.1–11
+- [x] [01 — What is Cloud Computing](notes/01-what-is-cloud-computing.md) · slides p.12–40
 - [ ] [02 — IAM](notes/02-iam.md) · slides p.41–58
 - [ ] [03 — EC2](notes/03-ec2.md) · slides p.59–93
 - [ ] [04 — EC2 Instance Storage](notes/04-ec2-instance-storage.md) · slides p.94–113
